@@ -9,8 +9,6 @@ from django.conf import settings
 def main():
     """Run administrative tasks."""
     try:
-        file = open("lol.txt", 'w')
-        file.write("xd")
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mserwer.settings')
         try:
             from django.core.management import execute_from_command_line
@@ -20,12 +18,12 @@ def main():
                 "available on your PYTHONPATH environment variable? Did you "
                 "forget to activate a virtual environment?"
             ) from exc
-        today = date.today()
-        author = "Bartosz Kędziorek"
-        port = settings.SERVER_PORT
-        print("Autor: {}".format(author))
+        
+        # ZADANIE 1A
+        port = settings.SERVER_PORT # pobranie portu z ustawień
+        print("Autor: {}".format("Bartosz Kędziorek"))
         print("Port: {}".format(port))
-        print("Data: {}".format(today))
+        print("Data: {}".format(date.today()))
         execute_from_command_line(sys.argv)
     except Exception as e:
         file = open("error.txt", 'w')

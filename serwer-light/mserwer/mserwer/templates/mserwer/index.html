@@ -12,11 +12,15 @@
 
     <script type="text/javascript"> 
         function getTimezone() { 
+            // pobranie strefy czasowej klienta
+            // i ustawienie jej w odpowiednim elemencie html
             offset = new Date().getTimezoneOffset(); 
             formatted = -(offset / 60); 
             document.querySelector('.output').textContent 
                     = formatted; 
 
+            // pobranie czasu w strefie czasowej klienta
+            // i ustawienie go w odpowiednim elemencie html
             const utcDate = new Date();
             const clientDate = new Date(utcDate.getTime() + offset);
             const formattedDate = clientDate.toLocaleString();
